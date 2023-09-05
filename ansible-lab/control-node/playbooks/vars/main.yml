@@ -1,8 +1,13 @@
+# Configuração do MySQL
 mysql_root_password: devopsmaonamassa
+
+# Definição de bancos de dados
 mysql_databases:
   - name: notes
     encoding: latin1
     collation: latin1_general_ci
+
+# Definição de usuários do MySQL
 mysql_users:
   - name: notesapp
     host: "%"

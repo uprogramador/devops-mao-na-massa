@@ -1,8 +1,15 @@
-
+# Versão da configuração do Vagrant
 Vagrant.configure("2") do |config|
   
+  # Configura a imagem da máquina virtual
   config.vm.box = "centos/7"
-  config.vm.provision "shell", path:"provision.sh"
+  
+  # Provisiona a máquina virtual executando um script shell
+  config.vm.provision "shell", path: "provision.sh"
+  
+  # Desativa a atualização automática do VirtualBox Guest Additions
   config.vbguest.auto_update = false
+  
+  # Define configurações adicionais aqui, se necessário
   
 end

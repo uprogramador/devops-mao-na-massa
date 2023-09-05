@@ -1,12 +1,28 @@
+# Versão da configuração do Vagrant
 Vagrant.configure("2") do |config|
   
+  # Escolha a imagem base do sistema operacional (box)
   config.vm.box = 'centos/7'
+
+  # Defina o nome da máquina virtual (hostname)
   config.vm.hostname = 'sonarqube'
-  config.vm.network 'forwarded_port', guest: 9000, host: 9001, hostip: '127.0.0.1'  
+
+  # Configuração de encaminhamento de porta
+  # Isso mapeia a porta 9000 do sistema operacional da VM para a porta 9001 da máquina host
+  # E permite que você acesse a aplicação na máquina host via 127.0.0.1:9001
+  config.vm.network 'forwarded_port', guest: 9000, host: 9001, hostip: '127.0.0.1'
+
+  # Configuração de provisionamento
+  # Isso executa um script shell chamado 'provision.sh' dentro da máquina virtual
   config.vm.provision 'shell', path: 'provision.sh'
+
+  # Configurações específicas do provedor (VirtualBox)
   config.vm.provider 'virtualbox' do |v|
+    # Define a quantidade de memória RAM alocada para a máquina virtual
     v.memory = 1024
   end
+
+  # Desativa a atualização automática do VirtualBox Guest Additions
+  # Isso pode ser útil para evitar problemas de compatibilidade
   config.vbguest.auto_update = false
-  
 end
