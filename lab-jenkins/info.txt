@@ -1,0 +1,12 @@
+Senha admin: ea288acf5b7c4e2f92c8ed98956558c5
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+user: devops
+passwd: dolar@8520
+
+git: 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
+
+sudo usermod -aG docker jenkins
+sudo chmod 666 /var/run/docker.sock
+
